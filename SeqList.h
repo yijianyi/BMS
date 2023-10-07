@@ -20,12 +20,12 @@ public:
 	int capacity;
 }BookArray;
 
-const int initSize = 20;
+const size_t initSize = 20;
 
 //创建动态数组
-void createBookArray(BookArray* books);
+void createBookArray(BookArray& books);
 //扩容
-void inflateArray(BookArray* books);
+bool inflateArray(BookArray& books, size_t inflateSize);
 
 //查找图书
 Book findBook(BookArray books);
@@ -43,9 +43,9 @@ BookArray* reverse(BookArray books);
 Book maxPriceBook(BookArray books);
 
 //插入新图书（入库）
-void insertBook(BookArray* books);
+void insertBook(BookArray& books);
 
 //删除旧图书（出库）
-void deleteBook(BookArray* books);
+void deleteBook(BookArray& books);
 
 #endif
