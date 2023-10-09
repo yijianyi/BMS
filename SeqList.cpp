@@ -21,7 +21,6 @@ bool inflateArray(BookArray& books, size_t inflateSize)
 	}
 	else
 	{
-		printf("ø’º‰≤ª◊„£¨∑÷≈‰ ß∞‹");
 		return false;
 	}
 }
