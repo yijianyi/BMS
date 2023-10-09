@@ -46,6 +46,6 @@ Book maxPriceBook(BookArray books);
 void insertBook(BookArray& books);
 
 //É¾³ý¾ÉÍ¼Êé£¨³ö¿â£©
-void deleteBook(BookArray& books);
+void popBook(BookArray& books);
 
 #endif
