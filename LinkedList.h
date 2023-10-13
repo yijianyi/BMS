@@ -5,7 +5,7 @@
 typedef struct linkedlist {
 public:
 	Book book;
-	Book* next;
+	linkedlist* next;
 }LinkedNode, *LinkedList;
 
 //输出图书信息表
