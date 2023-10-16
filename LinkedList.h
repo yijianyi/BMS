@@ -6,6 +6,20 @@ typedef struct linkedlist {
 public:
 	Book book;
 	linkedlist* next;
+	
+	linkedlist() {
+		this->next = nullptr;
+	}
+	linkedlist(Book book) {
+		this->book = book;
+		this->next = nullptr;
+	}
+	linkedlist(std::string ID, std::string name, double price) {
+		this->book.ID = ID;
+		this->book.name = name;
+		this->book.price = price;
+		this->next = nullptr;
+	}
 }LinkedNode, *LinkedList;
 
 //输出图书信息表
