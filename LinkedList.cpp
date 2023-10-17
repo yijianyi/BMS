@@ -14,3 +14,23 @@ void outputBookLink(LinkedList& books)
 		iter = iter->next;
 	}
 }
+/*
+*@brief 查找最贵图书
+*/
+void max(LinkedList& books)
+{
+	LinkedList iter = books;
+	double max = 0;
+	Book maxBook;
+	while (iter != nullptr)
+	{
+		if (iter->book.price > max)
+		{
+			max = iter->book.price;
+			maxBook = iter->book;
+		}
+		iter = iter->next;
+	}
+	std::cout << "最贵的图书是："<<maxBook.name << "价值为："<< max <<"元"<< std::endl;
+}
+
