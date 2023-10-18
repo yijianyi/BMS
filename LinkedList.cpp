@@ -44,7 +44,7 @@ void insertBook(LinkedList& books){
 	std::cout << "请输入图书ID,图书名称,图书价格,中间以空格相隔" << std::endl;
 	LinkedList iter = books;
 	for(int i=0;i<count;i++){
-		std::cin >> book.ID >> book.name >> book.price;
+		std::cin >> book.ID >> book.name >> book.price>>std::endl;
 		iter->book = book;
 		iter=iter->next;
 	}
