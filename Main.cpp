@@ -14,8 +14,8 @@ int main() {
 		if (n == 1) {
 			int n1;
             while(1){
-                std::cout << "1." << std::endl;
-
+                std::cout << "1.  .  3.  " << std::endl;
+                std::cin >> n1 >> std::endl;
 			}
 		}
 
@@ -23,7 +23,12 @@ int main() {
 		if(n==2){
            int n2;
 		   while(1){
-			std::cout <<"1.  2.  3.  "<<std::endl;
+			std::cout <<"1.输出排序信息2.排序3.修改排序信息  "<<std::endl;
+		    std::cin >> n2 >> std::endl;
+		    if(n2==1)
+			if(n2==2)
+			if(n2==3)
+		   
 		   }
 
 
