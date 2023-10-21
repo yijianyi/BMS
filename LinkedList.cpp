@@ -45,7 +45,12 @@ void insertBook(LinkedList& books){
 	LinkedList iter = books;
 	for(int i=0;i<count;i++){
 		std::cin >> book.ID >> book.name >> book.price;
-		iter->book = book;
+		/*iter->book = book;
+		iter=iter->next;*/
+		LinkedNode *s =new LinkedNode;
+		s->book=book;
+		s->next=iter->next;
+		iter->next=s;
 		iter=iter->next;
 	}
 	std::cout << "ÊäÈë²åÈëÎ»ÖÃ" << std::endl;
