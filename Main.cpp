@@ -1,11 +1,14 @@
 #include <iostream>
-#include "LinkedList.cpp"
+#include "LinkedList.h"
 #include "SeqList.h"
 
 
 int main() {
 	LinkedNode *head;
-	head = (LinkedNode *)malloc(sizeof(LinkedNode));
+	//head = (LinkedNode *)malloc(sizeof(LinkedNode));
+	head = new LinkedNode("001", "aaa", 22);
+	head->next = new LinkedNode("002", "bbb", 33);
+	outputBookLink(head);
 	if (head == NULL) {
 		printf("ÄÚ´æ·ÖÅäÊ§°Ü");
 		exit(0);

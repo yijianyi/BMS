@@ -10,7 +10,7 @@ void outputBookLink(LinkedList& books)
 	int count = 0;
 	while (iter != nullptr)
 	{
-		std::cout << ++count << iter->book.ID << " " << iter->book.name << " " << iter->book.price << std::endl;
+		std::cout << ++count<< " " << iter->book.ID << " " << iter->book.name << " " << iter->book.price << std::endl;
 		iter = iter->next;
 	}
 }
