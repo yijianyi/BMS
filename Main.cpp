@@ -69,6 +69,8 @@ int main() {
 					std::cout << "123";
 				else if (n2 == 6) {
 					insertBook(head);
+					std::cout << "ÊäÈë²åÈëÎ»ÖÃ4" << std::endl;
+					outputBookLink(head);
 				} else if (n2 == 7)
 					std::cout << "123";
 				else if (n2 == 8)

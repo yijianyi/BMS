@@ -53,17 +53,33 @@ void insertBook(LinkedList& books){
 		iter->next=s;
 		iter=iter->next;
 	}
+	 
 	std::cout << "输入插入位置" << std::endl;
 	std::cin>>count;
+	std::cout << "请输入图书ID,图书名称,图书价格,中间以空格相隔" << std::endl;
+	std::cin >> book.ID >> book.name >> book.price;
 	int j=0;
+	
+	iter = books;
 	//将book插入到指定位置	
 	 while (iter != nullptr && (j<count-1))
 	 {
 		iter=iter->next;
+		j++;
 	 }
-	 
+	
 	LinkedNode *s =new LinkedNode;
-	 s->book=book;	
-	 s->next=iter->next;	
-	 iter->next=s;
+	s->book=book;	
+	s->next=iter->next;
+	std::cout << "输入插入位置2" << std::endl;
+	iter->next=s;
+	std::cout << "输入插入位置3" << std::endl;
+	//输出整个链表中book的内容
+	/*iter = books;
+	while (iter != nullptr)
+	{
+		std::cout << iter->book.ID << " " << iter->book.name << " " << iter->book.price << std::endl;
+		iter = iter->next;}*/
+
+	 
 }
