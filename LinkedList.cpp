@@ -75,9 +75,5 @@ void insertBook(LinkedList& books){
 	iter->next=s;
 	std::cout << "输入插入位置3" << std::endl;
 	//输出整个链表中book的内容
-	/*iter = books;
-	while (iter != nullptr)
-	{
-		std::cout << iter->book.ID << " " << iter->book.name << " " << iter->book.price << std::endl;
-		iter = iter->next;}*/
+	
 }
