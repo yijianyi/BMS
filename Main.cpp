@@ -32,23 +32,23 @@ int main() {
 				          << std::endl;
 				std::cin >> n1;
 				if (n1 == 1)
-
-					if (n1 == 2)
-
+					std::cout << "123";
+				else if (n1 == 2)
+					std::cout << "123";
 						if (n1 == 3)
-
+							std::cout << "123";
 							if (n1 == 4)
-
+								std::cout << "123";
 								if (n1 == 5)
-
+									std::cout << "123";
 									if (n1 == 6)
-
+										std::cout << "123";
 										if (n1 == 7)
-
+											std::cout << "123";
 											if (n1 == 8)
-
+												std::cout << "123";
 												if (n1 == 9)
-
+													std::cout << "123";
 													if (n1 == 10)
 														break;
 			}
@@ -72,7 +72,6 @@ int main() {
 					std::cout << "123";
 				else if (n2 == 6) {
 					insertBook(head);
-					std::cout << "ÊäÈë²åÈëÎ»ÖÃ4" << std::endl;
 					outputBookLink(head);
 				} else if (n2 == 7)
 					std::cout << "123";
