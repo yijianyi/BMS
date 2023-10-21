@@ -80,6 +80,4 @@ void insertBook(LinkedList& books){
 	{
 		std::cout << iter->book.ID << " " << iter->book.name << " " << iter->book.price << std::endl;
 		iter = iter->next;}*/
-
-	 
 }
