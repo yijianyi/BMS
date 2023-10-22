@@ -55,16 +55,22 @@ void outputBookArray(BookArray books)
 * @param books 图书信息表
 * @return 排序后的数组
 */
-BookArray* sortBook(BookArray books)
+BookArray sortBook(BookArray books)
 {
 	Book* book = books.books;
-	for (size_t i = 0; i < books.size; i++)
+	for (size_t i = 0; i < books.size-1; i++)
 	{
-		for (size_t j = 0; j < books.size - i; j++)
+		for (size_t j = 0; j < books.size -1- i; j++)
 		{
-			
+			if (book[j].price < book[j + 1].price)
+			{
+				Book temp = book[j];
+				book[j] = book[j + 1];
+				book[j + 1] = temp;
+			}
 		}
 	}
+	return books;
 }
 
 /*
@@ -72,25 +78,109 @@ BookArray* sortBook(BookArray books)
 * @param books 图书信息表
 * @return 逆序后的数组
 */
-BookArray* reverse(BookArray books);
+BookArray reverse(BookArray books)
+{
+	Book* book = books.books;
+	for (size_t i = 0; i < books.size/2; i++)
+	{
+		Book temp = book[i];
+		book[i] = book[books.size - 1 - i];
+		book[books.size - 1 - i] = temp;
+	}
+	return books;
+}
 
 /*
 * @brief 查找最贵图书
 * @param books 图书信息表
 * @return 查找到的最贵图书
 */
-Book maxPriceBook(BookArray books);
+Book maxPriceBook(BookArray books)
+{
+	Book* book = books.books;
+	Book maxBook = book[0];
+	for (size_t i = 1; i < books.size; i++)
+	{
+		if (book[i].price > maxBook.price)
+		{
+			maxBook = book[i];
+		}
+	}
+	return maxBook;
+}
 
 /*
 * @brief 入库
 * @param books 图书信息表
 * @return 无
 */
-void insertBook(BookArray& books);
+void insertBook(BookArray& books)
+{
+	outputBookArray(books);
+	int count;
+	std::cout << "请输入插入位置：";
+	std::cin >> count;
+	if (count > books.size+1)
+	{
+		std::cout << "插入位置无效" << std::endl;
+		return;
+	}
+
+	Book book;
+	std::cout << "请输入图书ID,图书名称,图书价格,中间以空格相隔" << std::endl;
+	std::cin >> book.ID >> book.name >> book.price;
+
+	if (books.size == books.capacity)
+		if (!inflateArray(books, 5))
+		{
+			std::cout << "空间不足" << std::endl;
+			return;
+		}
+			
+
+	if (count-1 == books.size)
+	{
+		books.books[count-1] = book;
+		books.size += 1;
+	}
+	else
+	{
+		for (size_t i = books.size-1; i >= count-1; i--)
+		{
+			books.books[i + 1] = books.books[i];
+		}
+		books.books[count - 1] = book;
+	}
+}
 
 /*
 * @brief 出库
 * @param books 图书信息表
 * @return 无
 */
-void popBook(BookArray& books);
+void popBook(BookArray& books)
+{
+	outputBookArray(books);
+	int count;
+	std::cout << "请输入删除位置：";
+	std::cin >> count;
+	if (count > books.size)
+	{
+		std::cout << "删除位置无效" << std::endl;
+		return;
+	}
+
+
+	if (count - 1 == books.size)
+	{
+		books.books[count - 1] = nullptr;
+		books.size -= 1;
+	}
+	else
+	{
+		for (size_t i = count - 1; i < books.size; i++)
+		{
+			books.books[i] = books.books[i+1];
+		}
+	}
+}

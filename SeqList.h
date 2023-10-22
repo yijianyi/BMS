@@ -31,10 +31,10 @@ bool inflateArray(BookArray& books, size_t inflateSize);
 void outputBookArray(BookArray books);
 
 //≈≈–Ú
-BookArray* sortBook(BookArray books);
+BookArray sortBook(BookArray books);
 
 //ƒÊ–Ú¥Ê¥¢
-BookArray* reverse(BookArray books);
+BookArray reverse(BookArray books);
 
 //≤È’“◊ÓπÛÕº È
 Book maxPriceBook(BookArray books);
