@@ -67,14 +67,21 @@ int main() {
 				else if (n2 == 3)
 					std::cout << "123";
 				else if (n2 == 4)
-					std::cout << "123";
+				{
+					reverseBookLink(head);
+					outputBookLink(head);
+				}
 				else if (n2 == 5)
 					max(head);
 				else if (n2 == 6) {
 					insertBook(head);
 					outputBookLink(head);
-				} else if (n2 == 7)
-					std::cout << "123";
+				}
+				else if (n2 == 7)
+				{
+					popBook(head);
+					outputBookLink(head);
+				}
 				else if (n2 == 8)
 					break;
 			}

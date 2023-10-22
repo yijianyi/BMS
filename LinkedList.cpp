@@ -53,9 +53,21 @@ void insertBook(LinkedList& books){
 		iter->next=s;
 		iter=iter->next;
 	}
-	 
+	//查询链表长度
+	int length = 0;
+	LinkedList iter1 = books;
+	while (iter1 != nullptr)
+	{
+		length++;
+		iter1 = iter1->next;
+	}
+
+
 	std::cout << "输入插入位置" << std::endl;
 	std::cin>>count;
+	if(length<count)
+	   std::cout << "入库位置非法" << std::endl;
+	else{
 	std::cout << "请输入图书ID,图书名称,图书价格,中间以空格相隔" << std::endl;
 	std::cin >> book.ID >> book.name >> book.price;
 	int j=0;
@@ -73,5 +85,82 @@ void insertBook(LinkedList& books){
 	s->next=iter->next;
 	iter->next=s;
 	//输出整个链表中book的内容
-	
+	}
 }
+
+
+/*
+*@brief 出库操作
+*/
+void popBook(LinkedList& books){
+   int count;
+   std::cout << "输入删除位置" << std::endl;
+   std::cin>>count;
+   LinkedList iter = books;
+
+   //查询链表长度
+   int length = 0;
+	LinkedList iter1 = books;
+	while (iter1 != nullptr)
+	{
+		length++;
+		iter1 = iter1->next;
+	}
+   
+   if(length<count)
+      std::cout << "出库位置非法" << std::endl;
+   else{
+   
+   //将指定位置的book删除	
+   while (iter != nullptr && (count-1))
+          {
+			iter=iter->next;
+			count--;
+		  }
+		  LinkedNode *s = iter->next;
+		  iter->next=iter->next->next;
+		  delete s;
+        
+	  }
+}
+
+/*
+*@brief 逆序储存
+*/
+void reverseBookLink(LinkedList& books){
+
+   //查询链表长度
+   int length = 0;
+	LinkedList iter1 = books;
+	while (iter1 != nullptr)
+	{
+		length++;
+		iter1 = iter1->next;
+	}
+
+   if(length<2)
+      std::cout << "只有一个元素，逆序储存非法" << std::endl;
+	  else{
+	  LinkedList iter = books;
+	  LinkedList iter1 = books;
+	  LinkedList iter2 = books;
+	  iter2=iter2->next;
+	  iter1=iter1->next;
+	  iter2=iter2->next;
+	  iter1->next=nullptr;
+	  while (iter2 != nullptr)
+	  {
+		iter1->next=iter2;
+		iter1=iter1->next;
+		iter2=iter2->next;
+	  }
+	  iter1->next=iter;
+	  books=iter1;
+	  
+
+
+	  }
+
+
+}
+

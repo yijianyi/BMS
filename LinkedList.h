@@ -34,7 +34,7 @@ void sortBookLink(LinkedList& books);
 bool changeBook(LinkedList& books);
 
 //ÄæĞò´æ´¢
-LinkedList&& reverseBookLink(LinkedList& books);
+void reverseBookLink(LinkedList& books);
 
 //²éÕÒ×î¹óÍ¼Êé
 void max(LinkedList& books);
