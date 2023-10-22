@@ -71,9 +71,7 @@ void insertBook(LinkedList& books){
 	LinkedNode *s =new LinkedNode;
 	s->book=book;	
 	s->next=iter->next;
-	std::cout << "输入插入位置2" << std::endl;
 	iter->next=s;
-	std::cout << "输入插入位置3" << std::endl;
 	//输出整个链表中book的内容
 	
 }
