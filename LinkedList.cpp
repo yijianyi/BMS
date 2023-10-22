@@ -186,16 +186,15 @@ void popBook(LinkedList& books){
    else{
 	   count--;
    //将指定位置的book删除	
-   while (iter != nullptr && (count-2))
-          {
-			iter=iter->next;
-			count--;
-		  }
-		  LinkedNode *s = iter->next;
-		  iter->next=iter->next->next;
-		  delete s;
-        
-	  }
+		while (iter != nullptr && (count-1))
+		{
+		iter=iter->next;
+		count--;
+		}
+		 LinkedNode *s = iter->next;
+		 iter->next=iter->next->next;
+		 delete s;
+    }
 }
 
 /*
