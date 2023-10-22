@@ -184,7 +184,7 @@ void popBook(LinkedList& books){
    if(length<count)
       std::cout << "出库位置非法" << std::endl;
    else{
-   
+	   count--;
    //将指定位置的book删除	
    while (iter != nullptr && (count-1))
           {
