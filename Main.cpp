@@ -32,7 +32,7 @@ void SeqInit(BookArray& books)
 	books.books[2].name = "线性代数";
 	books.books[2].price = 28;
 	books.size += 1;
-
+	
 	books.books[3].ID = "S004";
 	books.books[3].name = "数据结构";
 	books.books[3].price = 35;
