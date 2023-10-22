@@ -1,5 +1,5 @@
 #include "SeqList.h"
-#include <stdio.h>
+#include <iostream>
 #include <stdlib.h>
 #include <stdbool.h>
 
@@ -35,5 +35,62 @@ bool inflateArray(BookArray& books, size_t inflateSize)
 		return false;
 	}
 }
-/*hello
+
+/*
+* @brief 输出图书信息
+* @param books图书信息表
+* @return 无
 */
+void outputBookArray(BookArray books)
+{
+	Book* book = books.books;
+	for (size_t i = 0; i < books.size; i++)
+	{
+		std::cout << i + 1 << " " << book[i].ID << " " << book[i].name << " " << book[i].price << std::endl;
+	}
+}
+
+/*
+* @brief 图书按价格降序排序（不改变原数组顺序）
+* @param books 图书信息表
+* @return 排序后的数组
+*/
+BookArray* sortBook(BookArray books)
+{
+	Book* book = books.books;
+	for (size_t i = 0; i < books.size; i++)
+	{
+		for (size_t j = 0; j < books.size - i; j++)
+		{
+			
+		}
+	}
+}
+
+/*
+* @brief 图书逆序（不改变原数组）
+* @param books 图书信息表
+* @return 逆序后的数组
+*/
+BookArray* reverse(BookArray books);
+
+/*
+* @brief 查找最贵图书
+* @param books 图书信息表
+* @return 查找到的最贵图书
+*/
+Book maxPriceBook(BookArray books);
+
+/*
+* @brief 入库
+* @param books 图书信息表
+* @return 无
+*/
+void insertBook(BookArray& books);
+
+/*
+* @brief 出库
+* @param books 图书信息表
+* @return 无
+*/
+void popBook(BookArray& books);

@@ -27,9 +27,6 @@ void createBookArray(BookArray& books);
 //扩容
 bool inflateArray(BookArray& books, size_t inflateSize);
 
-//查找图书
-Book findBook(BookArray books);
-
 //遍历输出动态数组
 void outputBookArray(BookArray books);
 

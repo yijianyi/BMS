@@ -2,18 +2,23 @@
 #include "LinkedList.h"
 #include "SeqList.h"
 
+void LinkedInit(LinkedList& head)
+{
+	LinkedList iter;
+	iter = new LinkedNode("L001", "高等数学上", 45);
+	head = iter;
+	iter->next = new LinkedNode("L002", "高等数学下", 20);
+	iter = iter->next;
+	iter->next = new LinkedNode("L003", "线性代数", 28);
+	iter = iter->next;
+	iter->next = new LinkedNode("L004", "数据结构", 35);
+}
 
 int main() {
-	LinkedNode *head;
-	//head = (LinkedNode *)malloc(sizeof(LinkedNode));
-	head = new LinkedNode("001", "aaa", 22);
-	head->next = new LinkedNode("002", "bbb", 33);
-	//outputBookLink(head);
-	if (head == NULL) {
-		printf("内存分配失败");
-		exit(0);
-	}
-	head->next = NULL;
+	LinkedNode *head = nullptr;
+	LinkedInit(head);
+	outputBookLink(head);
+	
 
 
 	//主界面
@@ -35,37 +40,41 @@ int main() {
 					std::cout << "123";
 				else if (n1 == 2)
 					std::cout << "123";
-						if (n1 == 3)
-							std::cout << "123";
-							if (n1 == 4)
-								std::cout << "123";
-								if (n1 == 5)
-									std::cout << "123";
-									if (n1 == 6)
-										std::cout << "123";
-										if (n1 == 7)
-											std::cout << "123";
-											if (n1 == 8)
-												std::cout << "123";
-												if (n1 == 9)
-													std::cout << "123";
-													if (n1 == 10)
-														break;
+				else if (n1 == 3)
+					std::cout << "123";
+				else if (n1 == 4)
+					std::cout << "123";
+				else if (n1 == 5)
+					std::cout << "123";
+				else if (n1 == 6)
+					std::cout << "123";
+				else if (n1 == 7)
+					std::cout << "123";
+				else if (n1 == 8)
+					std::cout << "123";
+				else if (n1 == 9)
+					std::cout << "123";
+				else if (n1 == 10)
+					break;
 			}
 		}
-
-
-		if (n == 2) {
+		else if (n == 2) {
 			int n2;
 			while (1) {
 				std::cout << "1.输出排序信息 2.排序 3.修改图书信息 4.逆序储存 5.查找最贵图书 6.入库 7.出库 8.退出" << std::endl;
 				std::cin >> n2;
 				if (n2 == 1)
-					std::cout << "123";
+					outputBookLink(head);
 				else if (n2 == 2)
-					std::cout << "123";
+				{
+					sortBookLink(head);
+					outputBookLink(head);
+				}
 				else if (n2 == 3)
-					std::cout << "123";
+				{
+					changeBook(head);
+					outputBookLink(head);
+				}
 				else if (n2 == 4)
 				{
 					reverseBookLink(head);
@@ -86,8 +95,7 @@ int main() {
 					break;
 			}
 		}
-
-		if (n == 3)
+		else if (n == 3)
 			break;
 	}
 
