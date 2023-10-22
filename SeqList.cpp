@@ -10,7 +10,7 @@
 */
 void createBookArray(BookArray& books)
 {
-	books.books = (Book*)malloc(sizeof(Book) * initSize);
+	books.books = new Book[initSize];
 	books.capacity = initSize;
 	books.size = 0;
 }
@@ -150,6 +150,7 @@ void insertBook(BookArray& books)
 			books.books[i + 1] = books.books[i];
 		}
 		books.books[count - 1] = book;
+		books.size += 1;
 	}
 }
 
@@ -173,14 +174,14 @@ void popBook(BookArray& books)
 
 	if (count - 1 == books.size)
 	{
-		books.books[count - 1] = nullptr;
 		books.size -= 1;
 	}
 	else
 	{
-		for (size_t i = count - 1; i < books.size; i++)
+		for (size_t i = count - 1; i < books.size-1; i++)
 		{
 			books.books[i] = books.books[i+1];
 		}
+		books.size -= 1;
 	}
 }

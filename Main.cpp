@@ -14,12 +14,39 @@ void LinkedInit(LinkedList& head)
 	iter->next = new LinkedNode("L004", "数据结构", 35);
 }
 
+void SeqInit(BookArray& books)
+{
+	createBookArray(books);
+
+	books.books[0].ID = "S001";
+	books.books[0].name = "高等数学上";
+	books.books[0].price = 45;
+	books.size += 1;
+
+	books.books[1].ID = "S002";
+	books.books[1].name = "高等数学下";
+	books.books[1].price = 20;
+	books.size += 1;
+
+	books.books[2].ID = "S003";
+	books.books[2].name = "线性代数";
+	books.books[2].price = 28;
+	books.size += 1;
+
+	books.books[3].ID = "S004";
+	books.books[3].name = "数据结构";
+	books.books[3].price = 35;
+	books.size += 1;
+}
+
 int main() {
 	LinkedNode *head = nullptr;
 	LinkedInit(head);
 	outputBookLink(head);
 	
-
+	BookArray books;
+	SeqInit(books);
+	outputBookArray(books);
 
 	//主界面
 	while (1) {
@@ -33,28 +60,37 @@ int main() {
 			int n1;
 			while (1) {
 				std::cout <<
-				          "1.创建动态数组 2.扩容  3.查找图书 4.遍历输出动态数组 5.排序 6.逆序存储 7.查找最贵图书 8.插入新图书  9.删除旧图书 10.退出"
+				          "1.遍历输出动态数组 2.排序 3.逆序存储 4.查找最贵图书 5.插入新图书  6.删除旧图书 7.退出"
 				          << std::endl;
 				std::cin >> n1;
 				if (n1 == 1)
-					std::cout << "123";
+					outputBookArray(books);
 				else if (n1 == 2)
-					std::cout << "123";
+				{
+					BookArray newBooks = sortBook(books);
+					outputBookArray(newBooks);
+				}
 				else if (n1 == 3)
-					std::cout << "123";
+				{
+					BookArray newBooks = reverse(books);
+					outputBookArray(newBooks);
+				}
 				else if (n1 == 4)
-					std::cout << "123";
+				{
+					Book book = maxPriceBook(books);
+					std::cout << book.ID << " " << book.name << " " << book.price << std::endl;
+				}
 				else if (n1 == 5)
-					std::cout << "123";
+				{
+					insertBook(books);
+					outputBookArray(books);
+				}
 				else if (n1 == 6)
-					std::cout << "123";
+				{
+					popBook(books);
+					outputBookArray(books);
+				}
 				else if (n1 == 7)
-					std::cout << "123";
-				else if (n1 == 8)
-					std::cout << "123";
-				else if (n1 == 9)
-					std::cout << "123";
-				else if (n1 == 10)
 					break;
 			}
 		}
