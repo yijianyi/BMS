@@ -31,7 +31,7 @@ void outputBookLink(LinkedList& books);
 void sortBookLink(LinkedList& books);
 
 //修改图书信息
-bool changeBook(LinkedList& books);
+void changeBook(LinkedList& books);
 
 //逆序存储
 void reverseBookLink(LinkedList& books);

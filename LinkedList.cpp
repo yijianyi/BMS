@@ -14,6 +14,80 @@ void outputBookLink(LinkedList& books)
 		iter = iter->next;
 	}
 }
+
+/*
+* @brief 根据图书价格降序排序（修改链表顺序）
+* @param books 链表头结点
+* @retval 无
+*/
+void sortBookLink(LinkedList& books)
+{
+	LinkedList head = books;
+	LinkedNode* dummy = new LinkedNode();
+	dummy->next = head;
+	LinkedNode* tail = nullptr; // 维护遍历终点
+	// 不断把大的值往右转移，遍历终点总是能变成最大值，再更新遍历终点
+	while (tail != head) {
+		LinkedNode* pre = dummy;
+		LinkedNode* cur = pre->next;
+		LinkedNode* nxt = cur->next;
+		while (nxt != tail) {
+			if (nxt->book.price > cur->book.price) { // 穿针引线交换节点
+				pre->next = nxt;
+				cur->next = nxt->next;
+				nxt->next = cur;
+
+			}
+			else {
+				cur = cur->next;
+			}
+			pre = pre->next;
+			nxt = cur->next;
+		}
+		tail = cur;
+	}
+	head = dummy->next;
+	dummy = nullptr;
+	delete dummy;
+	books = head;
+}
+
+/*
+* brief 修改图书信息，将低于平均价格图书价格提高20%，大于等于图书价格提高10%
+* param books 链表头结点
+* retval 无
+*/
+void changeBook(LinkedList& books)
+{
+	LinkedList iter = books;
+	//计算平均值
+	double priceSum = 0,priceAVE;
+	int count = 0;
+	while (iter != nullptr)
+	{
+		priceSum += iter->book.price;
+		count++;
+		iter = iter->next;
+	}
+	if(count!=0)
+		priceAVE = priceSum / count;
+
+	//修改
+	iter = books;
+	while (iter != nullptr)
+	{
+		if (iter->book.price >= priceAVE)
+		{
+			iter->book.price *= 1.1;
+		}
+		else
+		{
+			iter->book.price *= 1.2;
+		}
+		iter = iter->next;
+	}
+}
+
 /*
 *@brief 查找最贵图书
 */
