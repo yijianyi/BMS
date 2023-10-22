@@ -203,38 +203,32 @@ void popBook(LinkedList& books){
 */
 void reverseBookLink(LinkedList& books){
 
-   //查询链表长度
-   int length = 0;
-	LinkedList iter1 = books;
-	while (iter1 != nullptr)
-	{
-		length++;
-		iter1 = iter1->next;
+	if (books == nullptr || books->next == nullptr) {
+		return;
 	}
 
-   if(length<2)
-      std::cout << "只有一个元素，逆序储存非法" << std::endl;
-	  else{
-	  LinkedList iter = books;
-	  LinkedList iter1 = books;
-	  LinkedList iter2 = books;
-	  iter2=iter2->next;
-	  iter1=iter1->next;
-	  iter2=iter2->next;
-	  iter1->next=nullptr;
-	  while (iter2 != nullptr)
-	  {
-		iter1->next=iter2;
-		iter1=iter1->next;
-		iter2=iter2->next;
-	  }
-	  iter1->next=iter;
-	  books=iter1;
+	LinkedNode* prev = nullptr;   // 前一个节点指针
+	LinkedNode* curr = books;      // 当前节点指针
+	LinkedNode* next = nullptr;   // 下一个节点指针
+
+	while (curr != nullptr) {
+		next = curr->next;  // 保存当前节点的下一个节点
+
+		// 反转当前节点指针指向前一个节点
+		curr->next = prev;
+
+		// 更新指针位置
+		prev = curr;
+		curr = next;
+	}
+
+	books = prev;
+	  
 	  
 
 
 	  }
 
 
-}
+
 
